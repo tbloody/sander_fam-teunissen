@@ -1,0 +1,12 @@
+{
+	frankenphp
+}
+
+localhost {
+	encode zstd br gzip
+	php_server
+
+	#rewrite path_regexp('^(.+)$') index.php/{uri}
+	try_files {path} /index.php/{path}
+	header /index.php/{path}
+}

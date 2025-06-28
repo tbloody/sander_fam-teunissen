@@ -1,0 +1,137 @@
+	@font-face {
+		font-family: 'BPdotsBold';
+		src: url('header_font/BPdotsBold-webfont.eot');
+		src: url('header_font/BPdotsBold-webfont.eot?#iefix') format('embedded-opentype'), url('header_font/BPdotsBold-webfont.woff') format('woff'), url('header_font/BPdotsBold-webfont.ttf') format('truetype'), url('header_font/BPdotsBold-webfont.svg#BPdotsBold') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'ProFontWindowsRegular';
+		src: url('body_font/ProFontWindows-webfont.eot');
+		src: url('body_font/ProFontWindows-webfont.eot?#iefix') format('embedded-opentype'), url('body_font/ProFontWindows-webfont.woff') format('woff'), url('body_font/ProFontWindows-webfont.ttf') format('truetype'), url('body_font/ProFontWindows-webfont.svg#ProFontWindowsRegular') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		background-color: #222;
+		color: #FFF;
+		background-repeat: repeat-x;
+		font-family: ProFontWindowsRegular;
+		font-size: 1em;
+	}
+
+	a {
+		color: #a93ee2;
+	}
+
+	a:hover {
+		color: #e23ed7;
+	}
+
+	h1 {
+		margin: 0;
+		font-size: 24pt;
+	}
+
+	p {
+		margin-top: 0;
+		margin-bottom: 1em;
+	}
+
+	#nav {
+		background-color: #333;
+		border-color: #000;
+		border-style: solid;
+		border-width: 0 2px 2px 2px;
+		border-radius: 0px 0px 5px 5px;
+		width: auto;
+		margin: 1em;
+		margin-top: -1px;
+		text-shadow: 1px 1px 1px #000;
+		text-align: center;
+		padding-bottom: 0.5em;
+	}
+
+	#nav ul {
+		width: 140px;
+		margin: auto;
+		padding: 0;
+	}
+
+	#nav ul li {
+		margin: 0;
+		padding: 0;
+		display: inline-table;
+	}
+
+	#nav ul li a {
+		font-size: 18pt;
+	}
+
+	#nav ul ul {
+		display: none;
+		position: absolute;
+		background-color: white;
+		box-shadow: 0px 2px 12px #000;
+		padding: 0.2em;
+	}
+
+	#nav ul ul li {
+		display: list-item;
+		text-align: left;
+	}
+
+	li:hover {
+		background-color: transparent;
+	}
+
+	#container {
+		background-color: #333;
+		border: 2px solid #000;
+		border-radius: 5px;
+		width: auto;
+		margin: 1em;
+		padding: 1em;
+	}
+
+	#container ul {
+		margin: 0.5em;
+	}
+
+	#container ul li {
+		margin-left: 1.5em;
+		list-style: square;
+	}
+
+	#header {
+		border: 2px solid #000;
+		background-color: #333;
+		background: linear-gradient(#a93ee2, #333);
+		border-width: 2px 2px 0px 2px;
+		border-radius: 5px 5px 0px 0px;
+		width: auto;
+		margin: 1em;
+		margin-bottom: 0;
+		padding: 1em;
+		text-shadow: 3px 3px 3px #000;
+		text-align: center;
+		font-family: BPdotsBold;
+	}
+
+	#header p {
+		margin: 0;
+		color: #FFF;
+		font-size: 32pt;
+		font-weight: bold;
+		line-height: 1.5em;
+		padding-bottom: 0.5em;
+	}
+
+	.important {
+		text-decoration: underline;
+		color: #AA0000;
+	}
