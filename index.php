@@ -36,10 +36,7 @@ register_shutdown_function(function () {
     }
 });
 
-$route_list = [
-    new RouteListItem('home.html', ['/', '/home',''], 'Home'),
-    new RouteListItem('contact.html', ['/contact'], 'Contact'),
-];
+require 'route_list.php';
 
 #get page into output buffer and write output buffer to variable
 ob_start();
@@ -61,9 +58,9 @@ $content = ob_get_clean();
 # fix header if not just passing through the HTML page
 if (!$hx_request) {
     $head_start = strpos($content, '<head');
-    $head="";
-    $head_end =0;
-    if(!$head_start === false) {
+    $head = "";
+    $head_end = 0;
+    if (!$head_start === false) {
         $head_end = strpos($content, "</head>") + 7;
         $head = substr($content, $head_start, $head_end);
         //For simplicity assume that the entire contents of the header needs to be added to the layout header
