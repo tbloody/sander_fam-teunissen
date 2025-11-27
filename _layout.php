@@ -9,21 +9,40 @@
 	<!--<meta name="viewport" content="width=device-width, user-scalable=no">-->
 	<meta hx-preserve="true" http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta hx-preserve="true" name="author" content="Sander Teunissen">
-	<meta hx-preserve="true" content="utf-8" http-equiv="encoding" /> <link hx-preserve="true" rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" /> <link hx-preserve="true" rel="stylesheet" href="css/site.css" media="all" />
+	<meta hx-preserve="true" content="utf-8" http-equiv="encoding" />
+	<link hx-preserve="true" rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+	<link hx-preserve="true" rel="stylesheet" href="css/site.css" media="all" />
 	<script hx-preserve="true" src="scripts/htmx-2.0.6.min.js"></script>
 	<script hx-preserve="true" src="scripts/page.js"></script>
 	<script hx-preserve="true" src="scripts/htmx-head-support-2.0.2.min.js"></script>
 
 </head>
-<div id="darkmode-toggle"></div>
 
 <body hx-ext="head-support" <?php if ($dark_mode) {
-					print("class='dark'");
-				} else {
-					print("class='light'");
-				}	?>>
-<a href="#content" id="skiplink">Skip to content</a>
+															print("class='dark'");
+														} else {
+															print("class='light'");
+														}	?>>
+	<a href="#content" id="skiplink">Skip to content</a>
+	<div id="darkmode-toggle"></div>
 	<div id="header">
+		<div id="language-selection">
+			<a href="?language=nl"
+				hx-target="#content"
+				hx-swap="show:none"
+				hx-boost="true"
+				<?php if ($language == "nl") {
+					print("class='active'");
+				} 	?>>NL</a>
+			|
+			<a href="?language=en"
+				hx-target="#content"
+				hx-swap="show:none"
+				hx-boost="true"
+				<?php if ($language == "en") {
+					print("class='active'");
+				} 	?>>EN</a>
+		</div>
 		<p>Sander Teunissen</p>
 	</div>
 	<div id="nav" hx-boost="true" hx-target="#content" hx-swap="show:none">

@@ -1,4 +1,5 @@
 <?php
+session_start();
 #class definitions
 class RouteListItem
 {
@@ -22,10 +23,25 @@ $hx_request = isset($_SERVER['HTTP_HX_REQUEST']) && $_SERVER['HTTP_HX_REQUEST'] 
 $dark_mode = isset($_GET['dark_mode']) && $_GET['dark_mode'];
 $head = "<head/>";
 $pages_folder = "/pages";
+$languages = ["nl", "en"];
+$default_language = "nl";
+$language = $default_language;
+$page_subdir = "";
+
+if (isset($_GET['language'])) {
+    $_SESSION['language'] = $_GET['language'];
+}
+
+if (isset($_SESSION['language'])) {
+    $language = $_SESSION['language'];
+    if ($language != $default_language && in_array($language, $languages)) {
+        $page_subdir = "/" . $language;
+    }
+}
 
 register_shutdown_function(function () {
     //reading these from global here allows access in _layout.php if needed
-    global $content, $hx_request, $dark_mode, $head, $body, $route, $route_list;
+    global $content, $hx_request, $dark_mode, $head, $body, $route, $route_list, $language;
     header('Content-type: text/html; charset=utf-8');
 
     # pass through HTML view for HTMX requests, otherwise build new page using the layout page.
@@ -43,14 +59,14 @@ ob_start();
 $not_found = true;
 foreach ($route_list as $key => $value) {
     if (in_array($route, $value->routes)) {
-        require __DIR__ . $pages_folder . '/' . $value->page;
+        require __DIR__ . $pages_folder . $page_subdir . '/' . $value->page;
         $not_found = False;
     }
 }
 
 if ($not_found) {
     http_response_code(404);
-    require __DIR__ . $pages_folder . '/404.html';
+    require __DIR__ . $pages_folder . $page_subdir . '/404.html';
 }
 
 $content = ob_get_clean();
