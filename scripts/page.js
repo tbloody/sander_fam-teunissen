@@ -1,7 +1,7 @@
 let isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    isDarkMode = event.matches;
+	isDarkMode = event.matches;
 	paintDarkMode();
 });
 
@@ -26,4 +26,13 @@ window.addEventListener("load", function () {
 function paintDarkMode(){
 	localStorage.setItem('darkmode',isDarkMode)
 	document.body.className = isDarkMode ? 'dark': 'light';
+}
+
+function clearActiveLanguage(){
+	let elems = document.querySelectorAll("#language-selection .active");
+	for(let key in elems){
+		if(isNaN(key)) continue;
+		console.log(elems,key);
+		elems[key].className = elems[key].classList.remove("active");
+	}
 }

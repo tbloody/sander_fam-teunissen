@@ -19,10 +19,10 @@
 </head>
 
 <body hx-ext="head-support" <?php if ($dark_mode) {
-															print("class='dark'");
-														} else {
-															print("class='light'");
-														}	?>>
+			print("class='dark'");
+		} else {
+			print("class='light'");
+		}	?>>
 	<a href="#content" id="skiplink">Skip to content</a>
 	<div id="darkmode-toggle"></div>
 	<div id="header">
@@ -31,6 +31,7 @@
 				hx-target="#content"
 				hx-swap="show:none"
 				hx-boost="true"
+				hx-on::after-request="clearActiveLanguage();this.className='active'"
 				<?php if ($language == "nl") {
 					print("class='active'");
 				} 	?>>NL</a>
@@ -39,10 +40,11 @@
 				hx-target="#content"
 				hx-swap="show:none"
 				hx-boost="true"
+				hx-on::after-request="clearActiveLanguage();this.className='active'"
 				<?php if ($language == "en") {
 					print("class='active'");
 				} 	?>>EN</a>
-		</div>
+					</div>
 		<p>Sander Teunissen</p>
 	</div>
 	<div id="nav" hx-boost="true" hx-target="#content" hx-swap="show:none">
