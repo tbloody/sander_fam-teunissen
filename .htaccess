@@ -2,8 +2,8 @@
 RewriteEngine On
 
 # Uncomment the following lines if you want to enforce access through HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+#RewriteCond %{HTTPS} off
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
 
 # Activate the authorization header if you're using PHP in CGI mode.
 RewriteCond %{HTTP:Authorization} ^(.)

@@ -6,13 +6,8 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', eve
 });
 
 window.addEventListener("load", function () {
-	if(isDarkMode){
-		document.body.className="dark";
-	}else{
-		document.body.className="light";
-	}
 	if(localStorage.getItem('darkmode')!=null){
-		isDarkMode=!!localStorage.getItem('darkmode')
+		isDarkMode=localStorage.getItem('darkmode')=="true";
 		paintDarkMode();
 	}
 
@@ -32,7 +27,6 @@ function clearActiveLanguage(){
 	let elems = document.querySelectorAll("#language-selection .active");
 	for(let key in elems){
 		if(isNaN(key)) continue;
-		console.log(elems,key);
 		elems[key].className = elems[key].classList.remove("active");
 	}
 }

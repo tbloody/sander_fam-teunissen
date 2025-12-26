@@ -20,7 +20,12 @@ class RouteListItem
 $logDir = '/logs/';
 $route = explode("?", $_SERVER['REQUEST_URI'])[0] ?? '/';
 $hx_request = isset($_SERVER['HTTP_HX_REQUEST']) && $_SERVER['HTTP_HX_REQUEST'] == 'true';
-$dark_mode = isset($_GET['dark_mode']) && $_GET['dark_mode'];
+//default dark mode
+$dark_mode = true;
+if (isset($_GET['dark_mode']) && !$_GET['dark_mode']) {
+    $dark_mode = false;
+}
+
 $head = "<head/>";
 $pages_folder = "/pages";
 $languages = ["nl", "en"];

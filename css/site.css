@@ -1,164 +1,227 @@
-	@font-face {
-		font-family: 'BPdotsBold';
-		src: url('header_font/BPdotsBold-webfont.eot');
-		src: url('header_font/BPdotsBold-webfont.eot?#iefix') format('embedded-opentype'), url('header_font/BPdotsBold-webfont.woff') format('woff'), url('header_font/BPdotsBold-webfont.ttf') format('truetype'), url('header_font/BPdotsBold-webfont.svg#BPdotsBold') format('svg');
-		font-weight: normal;
-		font-style: normal;
-	}
+:root {
+	color-scheme: light dark;
+	--body-bg: light-dark(#CCC, #222);
+	--body-fg: light-dark(#000, #FFF);
+	--accent-color: light-dark(rebeccapurple, rebeccapurple);
+	--link-color: var(--accent-color);
+	--link-hover: light-dark(#e23ed7, #e23ed7);
+	--border: light-dark(#000, #000);
+}
 
-	@font-face {
-		font-family: 'ProFontWindowsRegular';
-		src: url('body_font/ProFontWindows-webfont.eot');
-		src: url('body_font/ProFontWindows-webfont.eot?#iefix') format('embedded-opentype'), url('body_font/ProFontWindows-webfont.woff') format('woff'), url('body_font/ProFontWindows-webfont.ttf') format('truetype'), url('body_font/ProFontWindows-webfont.svg#ProFontWindowsRegular') format('svg');
-		font-weight: normal;
-		font-style: normal;
-	}
+@font-face {
+	font-family: 'BPdotsBold';
+	src: url('header_font/BPdotsBold-webfont.eot');
+	src: url('header_font/BPdotsBold-webfont.eot?#iefix') format('embedded-opentype'), url('header_font/BPdotsBold-webfont.woff') format('woff'), url('header_font/BPdotsBold-webfont.ttf') format('truetype'), url('header_font/BPdotsBold-webfont.svg#BPdotsBold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
-	body {
-		margin: 0;
-		padding: 0;
-		background-color: #222;
-		color: #FFF;
-		background-repeat: repeat-x;
-		font-family: ProFontWindowsRegular;
-		font-size: 1em;
-	}
+@font-face {
+	font-family: 'ProFontWindowsRegular';
+	src: url('body_font/ProFontWindows-webfont.eot');
+	src: url('body_font/ProFontWindows-webfont.eot?#iefix') format('embedded-opentype'), url('body_font/ProFontWindows-webfont.woff') format('woff'), url('body_font/ProFontWindows-webfont.ttf') format('truetype'), url('body_font/ProFontWindows-webfont.svg#ProFontWindowsRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
-	a {
-		color: #a93ee2;
-	}
+.dark {
+	color-scheme: dark;
+}
 
-	a:hover {
-		color: #e23ed7;
-	}
+.light {
+	color-scheme: light;
+}
 
-	h1 {
-		margin: 0;
-		font-size: 24pt;
-	}
+.light .hidden-lightmode {
+	display: none;
+}
 
-	p {
-		margin-top: 0;
-		margin-bottom: 1em;
-	}
+.light .hidden-darkmode {
+	display: inline;
+}
 
-	#skiplink{
-		position:absolute;
-		top:-1000px;
-		left:0;
-		width:100%;
-		text-align:center;
-	}
+.dark .hidden-lightmode {
+	display: inline;
+}
 
-	#skiplink:focus{
-		top:0;
-	}
+.dark .hidden-darkmode {
+	display: none;
+}
 
-	#nav {
-		background-color: #333;
-		border-color: #000;
-		border-style: solid;
-		border-width: 0 2px 2px 2px;
-		border-radius: 0px 0px 5px 5px;
-		width: auto;
-		margin: 1em;
-		margin-top: -1px;
-		text-shadow: 1px 1px 1px #000;
-		text-align: center;
-		padding-bottom: 0.5em;
-	}
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--body-bg);
+	filter: brightness(1.2);
+	color: var(--body-fg);
+	background-repeat: repeat-x;
+	font-family: ProFontWindowsRegular;
+	font-size: 1em;
+}
 
-	#nav ul {
-		width: 140px;
-		margin: auto;
-		padding: 0;
-	}
+a {
+	color: var(--link-color);
+}
 
-	#nav ul li {
-		margin: 0;
-		padding: 0;
-		display: inline-table;
-	}
+a:hover {
+	color: var(--link-hover);
+}
 
-	#nav ul li a {
-		font-size: 18pt;
-	}
+a:visited {
+	color: var(--link-color);
+}
 
-	#nav ul ul {
-		display: none;
-		position: absolute;
-		background-color: white;
-		box-shadow: 0px 2px 12px #000;
-		padding: 0.2em;
-	}
+h1 {
+	margin: 0;
+	font-size: 24pt;
+}
 
-	#nav ul ul li {
-		display: list-item;
-		text-align: left;
-	}
+p {
+	margin-top: 0;
+	margin-bottom: 1em;
+}
 
-	li:hover {
-		background-color: transparent;
-	}
+#skiplink {
+	position: absolute;
+	top: -1000px;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
 
-	#container {
-		background-color: #333;
-		border: 2px solid #000;
-		border-radius: 5px;
-		width: auto;
-		margin: 1em;
-		padding: 1em;
-	}
+#skiplink:focus {
+	top: 0;
+}
 
-	#container ul {
-		margin: 0.5em;
-	}
+#nav {
+	background-color: var(--body-bg);
+	border-color: var(--border);
+	border-style: solid;
+	border-width: 0 2px 2px 2px;
+	border-radius: 0px 0px 5px 5px;
+	width: auto;
+	margin: 1em;
+	margin-top: -1px;
+	text-shadow: 1px 1px 1px var(--border);
+	text-align: center;
+	padding-bottom: 0.5em;
+}
 
-	#container ul li {
-		margin-left: 1.5em;
-		list-style: square;
-	}
+#nav ul {
+	width: 140px;
+	margin: auto;
+	padding: 0;
+}
 
-	#header {
-		border: 2px solid #000;
-		background-color: #333;
-		background: linear-gradient(#a93ee2, #333);
-		border-width: 2px 2px 0px 2px;
-		border-radius: 5px 5px 0px 0px;
-		width: auto;
-		margin: 1em;
-		margin-bottom: 0;
-		padding: 1em;
-		text-shadow: 3px 3px 3px #000;
-		text-align: center;
-		font-family: BPdotsBold;
-	}
+#nav ul li {
+	margin: 0;
+	padding: 0;
+	display: inline-table;
+}
 
-	#header p {
-		margin: 0;
-		color: #FFF;
-		font-size: 32pt;
-		font-weight: bold;
-		line-height: 1.5em;
-		padding-bottom: 0.5em;
-	}
+#nav ul li a {
+	font-size: 18pt;
+}
 
-	#language-selection{
-		position:absolute;
-		top:2em;
-		right:3em;
-	}
+#nav ul ul {
+	display: none;
+	position: absolute;
+	background-color: white;
+	box-shadow: 0px 2px 12px var(--border);
+	padding: 0.2em;
+}
 
-	#language-selection a{
-		color:#000;
-		text-shadow: 1px 1px 1px #DDD;
-	}
+#nav ul ul li {
+	display: list-item;
+	text-align: left;
+}
 
-	#language-selection a.active{
-		text-shadow: 1px 1px 1px #333;
-	}
+li:hover {
+	background-color: transparent;
+}
 
-	.important {
-		text-decoration: underline;
-		color: #AA0000;
-	}
+#container {
+	background-color: var(--body-bg);
+	border: 2px solid var(--border);
+	border-radius: 5px;
+	width: auto;
+	margin: 1em;
+	padding: 1em;
+}
+
+#container ul {
+	margin: 0.5em;
+}
+
+#container ul li {
+	margin-left: 1.5em;
+	list-style: square;
+}
+
+#header {
+	border: 2px solid var(--border);
+	background-color: var(--body-bg);
+	background: linear-gradient(var(--accent-color), var(--body-bg));
+	border-width: 2px 2px 0px 2px;
+	border-radius: 5px 5px 0px 0px;
+	width: auto;
+	margin: 1em;
+	margin-bottom: 0;
+	padding: 1em;
+	text-shadow: 3px 3px 3px var(--border);
+	text-align: center;
+	font-family: BPdotsBold;
+}
+
+#header p {
+	margin: 0;
+	color: #FFF;
+	font-size: 32pt;
+	font-weight: bold;
+	line-height: 1.5em;
+	padding-bottom: 0.5em;
+}
+
+#footer {
+	width: auto;
+	padding: 0.5em;
+	text-align: center;
+	font-family: BPdotsBold;
+	margin-top: -1em;
+}
+
+#footer a {
+	color: var(--link-color);
+	text-shadow: 1px 1px 1px var(--border);
+	text-decoration: none;
+}
+
+#footer a:hover {
+	color: var(--link-hover);
+}
+
+#language-selection {
+	position: absolute;
+	top: 2em;
+	right: 3em;
+}
+
+#language-selection a {
+	color: #000;
+	text-shadow: 1px 1px 1px #DDD;
+}
+
+.dark #language-selection a#darkmode-toggle {
+	color: #FFF;
+	text-shadow: 1px 1px 1px #333;
+}
+
+#language-selection a.active {
+	text-shadow: 1px 1px 1px #333;
+}
+
+#darkmode-toggle {
+	position: relative;
+	top: 0.1em;
+	text-decoration: none;
+}
